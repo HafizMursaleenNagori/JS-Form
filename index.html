@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body{
+            background-color: #343148FF;
+            overflow: hidden;
+            text-transform: capitalize;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        div.main{
+            height: 80vh;
+            width: 70vh;
+            background-color: #D7C49EFF;
+            border-radius: 5px;
+            color: #343148FF;
+        }
+        h1{
+            color: #D7C49EFF;
+        }
+        form{
+            text-align: justify;
+            padding: 0px 10px;
+            color: #343148FF;
+        }
+        input{
+            padding: 15px 25px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 5px;
+            color: #343148FF;
+            font-weight: bold;
+        }
+        label{
+            color: #343148FF;
+            font-weight: bold;
+        }
+        button{
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: transparent;
+            color: #D7C49EFF;
+            float: right;
+            position: relative;
+            left: 160px;
+            bottom: 15px;
+            font-weight: bold;
+            font-size: large;
+            letter-spacing: 1px;
+        }
+        button:hover{
+            cursor: pointer;
+            border: 2px ridge #D7C49EFF;
+            padding: 7px 18px;
+        }
+        input:active,input:focus{
+            padding: 15px 24.5px;
+            outline: 0px;
+        }
+        .none{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<center id="form">
+<h1>Fill out the form:</h1>
+<div class="main">
+<form action="" autocomplete="on" autocapitalize="on" >
+    <label for="fname">First Name: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" id="fname" name="fname" required><br> 
+
+    <label for="lname">Last Name: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" id="lname" name="lname" required><br>
+
+    <label for="email" title="We'll never share your email with anyone else.">Email address: </label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="email" id="email" required><br>
+
+    <label for="num">Phone Number: </label>&nbsp;&nbsp;&nbsp;
+    <input type="tel" id="num" required><br>
+
+    <label for="pass1">create pasword: </label>&nbsp;&nbsp;
+    <input type="password" id="pass1" minlength="6" maxlength="20" onfocus="number()" required ><br>
+    <label for="pass2">confirm password: </label>
+    <input type="password" id="pass2" minlength="6" maxlength="20" onmouseout="pass()" required>
+    <button type="submit" id="btn" aria-required="true" onclick="formFill()">Submit >></button> 
+</form>
+</div>
+</center>
+<!--  title=" Your password must be 6-20 characters long, contain letters(atleast one uppercase), numbers, atleast one special character and must not contain spaces, or emoji." -->
+<script>
+function number() {
+var num = document.getElementById("num").value;
+var btn = document.getElementById("btn");
+if (num.length > 11) {
+    alert("Please Enter Valid Phone Number")
+}
+}
+
+function pass() {
+var p1 = document.getElementById("pass1").value;
+var p2 = document.getElementById("pass2").value;
+if (p2 != p1) {
+    alert("Please enter the correct password!")
+}
+}
+
+function formFill() {
+    var btn = document.getElementById("btn");
+    if (btn.innerText === "Submit >>") {
+        document.getElementById("form").className="none";
+        alert("Thanks for filling the form : )")
+    }
+}
+
+
+</script>
+</body>
+</html>
